@@ -41,13 +41,14 @@ public class SpaDayController {
                 "<select name = 'manipedi'>" +
                 "<option value = 'manicure'>Manicure</option>" +
                 "<option value = 'pedicure'>Pedicure</option>" +
+                "<option value = 'combo'>Get the Combo Package!</option>" +
                 "</select><br>" +
                 "<input type = 'submit' value = 'Submit'>" +
                 "</form>";
         return html;
     }
 
-    @PostMapping(value="")
+    @PostMapping(value="/menu")
     public String spaMenu(@RequestParam String name, @RequestParam String skintype, @RequestParam String manipedi, Model model) {
 
         ArrayList<String> facials = new ArrayList<>();
@@ -62,6 +63,20 @@ public class SpaDayController {
                 appropriateFacials.add(facials.get(i));
             }
         }
+
+        model.addAttribute("manipedi", manipedi);
+        model.addAttribute("name", name);
+        model.addAttribute("skintype", skintype);
+        model.addAttribute("appropriateFacials", appropriateFacials);
+
+        ArrayList<String> colors = new ArrayList<>();
+        colors.add("pink");
+        colors.add("black");
+        colors.add("red");
+        colors.add("blue");
+        colors.add("cyan");
+
+        model.addAttribute("colors", colors);
 
         return "menu";
     }

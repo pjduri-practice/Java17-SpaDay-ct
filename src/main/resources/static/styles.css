@@ -24,3 +24,22 @@ table {
             padding: 10px;
             text-align: center;
 }
+
+.sample-table {
+    height: 90px;
+    padding: 2px;
+    background-color: chartreuse;
+}
+
+#colorSamples {
+    background-color: crimson;
+    text-align: center;
+    width: 90%;
+}
+
+.color-samples {
+    border: solid;
+    height: 50px;
+    width: 50px;
+    margin: 1px;
+}
